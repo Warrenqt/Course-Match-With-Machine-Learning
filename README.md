@@ -1,153 +1,159 @@
-# PHP-ML - Machine Learning library for PHP
+# ✨ CourseMatch: AI-Powered Course Recommendation System
 
-[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.2-8892BF.svg)](https://php.net/)
-[![Latest Stable Version](https://img.shields.io/packagist/v/php-ai/php-ml.svg)](https://packagist.org/packages/php-ai/php-ml)
-[![Build Status](https://travis-ci.org/php-ai/php-ml.svg?branch=master)](https://travis-ci.org/php-ai/php-ml)
-[![Documentation Status](https://readthedocs.org/projects/php-ml/badge/?version=master)](http://php-ml.readthedocs.org/)
-[![Total Downloads](https://poser.pugx.org/php-ai/php-ml/downloads.svg)](https://packagist.org/packages/php-ai/php-ml)
-[![License](https://poser.pugx.org/php-ai/php-ml/license.svg)](https://packagist.org/packages/php-ai/php-ml)
-[![Coverage Status](https://coveralls.io/repos/github/php-ai/php-ml/badge.svg?branch=master)](https://coveralls.io/github/php-ai/php-ml?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/php-ai/php-ml/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/php-ai/php-ml/?branch=master)
+Find your perfect college course. Discover your path, instantly.
 
-<p align="center">
-	<img src="https://github.com/php-ai/php-ml/raw/master/docs/assets/php-ml-logo.png" />
-</p>
+CourseMatch is an intelligent web application designed to help Senior High School students in the Philippines discover the ideal college course that matches their academic performance, interests, and personality traits through advanced machine learning algorithms.
 
-Fresh approach to Machine Learning in PHP. Algorithms, Cross Validation, Neural Network, Preprocessing, Feature Extraction and much more in one library.
+## 💡 The Problem & The Solution
 
-PHP-ML requires PHP >= 7.2.
+Choosing a college course is one of the most critical decisions a student makes. With hundreds of courses available and countless factors to consider—academic strengths, personal interests, career prospects, and personality fit—students often feel overwhelmed and uncertain about their future path.
 
-Simple example of classification:
-```php
-require_once __DIR__ . '/vendor/autoload.php';
+CourseMatch solves this by instantly analyzing a student's SHS grades, interests, and personality traits to generate personalized course recommendations. Using machine learning trained on real student success data, the system delivers accurate, data-driven suggestions that help students make informed decisions about their college education, significantly reducing uncertainty and guiding them toward courses where they're most likely to succeed.
 
-use Phpml\Classification\KNearestNeighbors;
+## 🚀 Try It Out
 
-$samples = [[1, 3], [1, 4], [2, 4], [3, 1], [4, 1], [4, 2]];
-$labels = ['a', 'a', 'a', 'b', 'b', 'b'];
+| Feature | Link |
+|---------|------|
+| 🌐 Web Application | https://course-match.infinityfree.me/public/index.php |
+| 📊 Project Presentation | https://www.canva.com/design/DAG7SpeRHXg/YdyV68tRiq8ig4BDu8Ihjg/edit |
+| ▶️ Video Presentation | https://www.youtube.com/watch?v=BoyjRZdfESQ |
 
-$classifier = new KNearestNeighbors();
-$classifier->train($samples, $labels);
+## 🛠️ Technology Stack
 
-echo $classifier->predict([3, 2]);
-// return 'b'
+CourseMatch is built using a robust combination of web technologies and advanced machine learning libraries.
+
+### 💻 Web Application
+
+The front-end and back-end web application is powered by the following technology:
+
+**Primary Framework**: PHP (Native PHP with PDO for database operations)
+
+**Frontend Technologies**:
+- HTML5 & CSS3 (Custom Stellar Design System)
+- JavaScript (Vanilla JS for interactivity)
+- Responsive Design (Mobile-first approach)
+
+**Backend Technologies**:
+- PHP 8.0+ (Server-side logic and API)
+- MySQL 5.7+ (Database management)
+- PDO (Secure database connections with prepared statements)
+
+### 🤖 Machine Learning & Libraries
+
+The core AI functionality is driven by the following libraries:
+
+**PHP / Packagist**:
+- `php-ai/php-ml` (v0.10.0): Machine learning library for PHP, specifically:
+  - K-Nearest Neighbors (KNN) Classifier
+  - Data normalization and preprocessing
+  - Model training and prediction
+
+**Machine Learning Model**:
+- **Algorithm**: K-Nearest Neighbors (KNN) Classifier
+- **Training Data**: 500+ student records with course outcomes
+- **Features Analyzed**:
+  - Interest categories (Problem Solving, Art, Technology, Business, Culinary)
+  - Personality traits (Analytical, Empathetic, Adventurous, Creative, Independent)
+  - 7 SHS Subject Grades (Mathematics, Science, English, Filipino, MAPEH, TLE, Araling Panlipunan)
+- **Output**: Top 3 course recommendations with match scores
+
+**Supported Courses** (15+):
+- Computer Science, Information Technology, Computer Engineering
+- Engineering, Business Administration, Accounting, Marketing
+- Fine Arts, Multimedia Arts, Culinary Arts
+- Hotel & Restaurant Management, Nutrition, Nursing
+- Education, Communication Arts, Architecture
+
+## 🔐 Security Features
+
+CourseMatch implements industry-standard security practices:
+
+- **Argon2ID Password Hashing**: Industry-standard password security
+- **Prepared Statements**: SQL injection prevention
+- **CSRF Protection**: Cross-site request forgery protection
+- **Rate Limiting**: Brute force attack prevention (5 attempts per 15 minutes)
+- **Session Security**: Secure session management with HTTPOnly cookies
+- **Input Validation**: Comprehensive client and server-side validation
+- **XSS Protection**: Proper input sanitization and output escaping
+
+## 📁 Project Structure
+
+```
+Course_Reco/
+├── ml/                          # Machine Learning Components
+│   ├── data/                    # Training datasets
+│   ├── models/                  # Trained ML models
+│   ├── predictor.php            # Prediction engine
+│   └── train_model.php          # Model training script
+├── assets/                      # Static assets (CSS, JS, images)
+├── includes/                    # Shared PHP components
+├── admin/                       # Admin panel
+├── config.php                   # Database & app configuration
+├── functions.php                # Helper functions
+├── index.php                    # Homepage
+├── login.php                    # User authentication
+├── signup.php                   # User registration
+├── dashboard.php                # User dashboard
+├── assessment.php               # Course assessment form
+├── results.php                  # Recommendation results
+├── profile.php                  # User profile management
+└── database_schema.sql          # Database structure
 ```
 
-## Awards
+## 🚀 Key Features
 
-<a href="http://www.yegor256.com/2016/10/23/award-2017.html">
-  <img src="http://www.yegor256.com/images/award/2017/winner-itcraftsmanpl.png" width="400"/></a>
+- **AI-Powered Recommendations**: Machine learning analyzes patterns from successful students
+- **Comprehensive Assessment**: Evaluates grades, interests, and personality traits
+- **Career Insights**: Shows job opportunities and salary ranges for each course
+- **User Dashboard**: Track assessment history and view past recommendations
+- **Leaderboard**: See how your scores compare with other students
+- **Secure Authentication**: Modern security standards with account protection
+- **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
 
-## Documentation
 
-To find out how to use PHP-ML follow [Documentation](http://php-ml.readthedocs.org/).
+## 👨‍💻 Project Team
 
-## Installation
+The CourseMatch project was developed by a dedicated team of developers:
 
-Currently this library is in the process of being developed, but You can install it with Composer:
+| Role | Name |
+|------|------|
+| Lead Developer / Project Manager | Marvin L. Naje |
+| Developer / Database Administrator  | Warren A. Panergayo |
+| Documentation/ Backup Developer | Lenard L. Tierra |
 
-```
-composer require php-ai/php-ml
-```
+## 🤝 Contribution & Support
 
-## Examples
+If you have any suggestions or would like to contribute to the project, please feel free to:
 
-Example scripts are available in a separate repository [php-ai/php-ml-examples](https://github.com/php-ai/php-ml-examples).
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## Datasets
+## 📝 License
 
-Public datasets are available in a separate repository [php-ai/php-ml-datasets](https://github.com/php-ai/php-ml-datasets).
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Features
+## 🆘 Support
 
-* Association rule learning
-    * [Apriori](http://php-ml.readthedocs.io/en/latest/machine-learning/association/apriori/)
-* Classification
-    * [SVC](http://php-ml.readthedocs.io/en/latest/machine-learning/classification/svc/)
-    * [k-Nearest Neighbors](http://php-ml.readthedocs.io/en/latest/machine-learning/classification/k-nearest-neighbors/)
-    * [Naive Bayes](http://php-ml.readthedocs.io/en/latest/machine-learning/classification/naive-bayes/)
-    * Decision Tree (CART)
-    * Ensemble Algorithms
-        * Bagging (Bootstrap Aggregating)
-        * Random Forest
-        * AdaBoost
-    * Linear
-        * Adaline
-        * Decision Stump
-        * Perceptron
-        * LogisticRegression
-* Regression
-    * [Least Squares](http://php-ml.readthedocs.io/en/latest/machine-learning/regression/least-squares/)
-    * [SVR](http://php-ml.readthedocs.io/en/latest/machine-learning/regression/svr/)
-* Clustering
-    * [k-Means](http://php-ml.readthedocs.io/en/latest/machine-learning/clustering/k-means/)
-    * [DBSCAN](http://php-ml.readthedocs.io/en/latest/machine-learning/clustering/dbscan/)
-    * Fuzzy C-Means
-* Metric
-    * [Accuracy](http://php-ml.readthedocs.io/en/latest/machine-learning/metric/accuracy/)
-    * [Confusion Matrix](http://php-ml.readthedocs.io/en/latest/machine-learning/metric/confusion-matrix/)
-    * [Classification Report](http://php-ml.readthedocs.io/en/latest/machine-learning/metric/classification-report/)
-    * Regression
-* Workflow
-    * [Pipeline](http://php-ml.readthedocs.io/en/latest/machine-learning/workflow/pipeline)
-    * FeatureUnion
-* Neural Network
-    * [Multilayer Perceptron Classifier](http://php-ml.readthedocs.io/en/latest/machine-learning/neural-network/multilayer-perceptron-classifier/)
-* Cross Validation
-    * [Random Split](http://php-ml.readthedocs.io/en/latest/machine-learning/cross-validation/random-split/)
-    * [Stratified Random Split](http://php-ml.readthedocs.io/en/latest/machine-learning/cross-validation/stratified-random-split/)
-* Feature Selection
-    * [Variance Threshold](http://php-ml.readthedocs.io/en/latest/machine-learning/feature-selection/variance-threshold/)
-    * [SelectKBest](http://php-ml.readthedocs.io/en/latest/machine-learning/feature-selection/selectkbest/)
-* Preprocessing
-    * [Normalization](http://php-ml.readthedocs.io/en/latest/machine-learning/preprocessing/normalization/)
-    * [Imputation missing values](http://php-ml.readthedocs.io/en/latest/machine-learning/preprocessing/imputation-missing-values/)
-    * LabelEncoder
-    * LambdaTransformer
-    * NumberConverter
-    * ColumnFilter
-    * OneHotEncoder
-* Feature Extraction
-    * [Token Count Vectorizer](http://php-ml.readthedocs.io/en/latest/machine-learning/feature-extraction/token-count-vectorizer/)
-        * NGramTokenizer
-        * WhitespaceTokenizer
-        * WordTokenizer
-    * [Tf-idf Transformer](http://php-ml.readthedocs.io/en/latest/machine-learning/feature-extraction/tf-idf-transformer/)
-* Dimensionality Reduction
-    * PCA (Principal Component Analysis)
-    * Kernel PCA
-    * LDA (Linear Discriminant Analysis)
-* Datasets
-    * [Array](http://php-ml.readthedocs.io/en/latest/machine-learning/datasets/array-dataset/)
-    * [CSV](http://php-ml.readthedocs.io/en/latest/machine-learning/datasets/csv-dataset/)
-    * [Files](http://php-ml.readthedocs.io/en/latest/machine-learning/datasets/files-dataset/)
-    * [SVM](http://php-ml.readthedocs.io/en/latest/machine-learning/datasets/svm-dataset/)
-    * [MNIST](http://php-ml.readthedocs.io/en/latest/machine-learning/datasets/mnist-dataset.md)
-    * Ready to use:
-        * [Iris](http://php-ml.readthedocs.io/en/latest/machine-learning/datasets/demo/iris/)
-        * [Wine](http://php-ml.readthedocs.io/en/latest/machine-learning/datasets/demo/wine/)
-        * [Glass](http://php-ml.readthedocs.io/en/latest/machine-learning/datasets/demo/glass/)
-* Models management
-    * [Persistency](http://php-ml.readthedocs.io/en/latest/machine-learning/model-manager/persistency/)
-* Math
-    * [Distance](http://php-ml.readthedocs.io/en/latest/math/distance/)
-    * [Matrix](http://php-ml.readthedocs.io/en/latest/math/matrix/)
-    * [Set](http://php-ml.readthedocs.io/en/latest/math/set/)
-    * [Statistic](http://php-ml.readthedocs.io/en/latest/math/statistic/)
-	* Linear Algebra
+For support or questions:
+- Email: [your-email@example.com]
+- Documentation: Check the inline code comments and project documentation files
+- Issues: Create an issue in the repository
 
-## Contribute
+## 🔄 Future Enhancements
 
-- [Guide: CONTRIBUTING.md](https://github.com/php-ai/php-ml/blob/master/CONTRIBUTING.md)
-- [Issue Tracker: github.com/php-ai/php-ml](https://github.com/php-ai/php-ml/issues)
-- [Source Code:  github.com/php-ai/php-ml](https://github.com/php-ai/php-ml)
+- Enhanced ML algorithms for better accuracy
+- Email verification system
+- Password reset functionality
+- Mobile app companion
+- Integration with university APIs
+- Advanced career counseling features
+- Progress tracking and analytics
+- Multi-language support
 
-You can find more about contributing in [CONTRIBUTING.md](CONTRIBUTING.md).
+---
 
-## License
+**Made with ❤️ for Filipino students seeking their perfect college course**
 
-PHP-ML is released under the MIT Licence. See the bundled LICENSE file for details.
-
-## Author
-
-Arkadiusz Kondas (@ArkadiuszKondas)
