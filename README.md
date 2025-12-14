@@ -155,5 +155,5 @@ For support or questions:
 
 ---
 
-**Made with ❤️ for Filipino students seeking their perfect college course**
+**Made with ❤️ for students seeking their perfect college course**
 
