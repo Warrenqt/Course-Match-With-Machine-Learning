@@ -131,16 +131,6 @@ If you have any suggestions or would like to contribute to the project, please f
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🆘 Support
-
-For support or questions:
-- Email: [your-email@example.com]
-- Documentation: Check the inline code comments and project documentation files
-- Issues: Create an issue in the repository
 
 ## 🔄 Future Enhancements
 
