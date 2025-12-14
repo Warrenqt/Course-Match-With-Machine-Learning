@@ -145,5 +145,5 @@ If you have any suggestions or would like to contribute to the project, please f
 
 ---
 
-**Made with ❤️ for students seeking their perfect college course**
+**Made for students seeking their perfect college course**
 
